@@ -349,6 +349,32 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      github: {
+        options: {
+          remote: 'git@github.com:vproman/wedding.git',
+          branch: 'master'
+        }
+      },
+      heroku: {
+        options: {
+          remote: 'git@heroku.com:stark-refuge-2823.git',
+          branch: 'master'
+        }
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'build'
+        }
+      }
     }
   });
 
@@ -403,4 +429,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-build-control');
 };
