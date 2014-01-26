@@ -360,7 +360,7 @@ module.exports = function (grunt) {
       github: {
         options: {
           remote: 'git@github.com:vproman/wedding.git',
-          branch: 'master'
+          branch: 'dist'
         }
       },
       heroku: {
